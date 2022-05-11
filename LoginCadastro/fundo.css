@@ -99,10 +99,11 @@ body{
     bottom: 30%;
 }
 .cadastro{
-    font-size: 25px;
+    font-size: 24px;
     width: 130px;
     cursor: pointer;
     color: black;
+    margin-top: 10px;
 }
 .cadastro:hover{
     color:rgb(8, 0, 255);
@@ -168,15 +169,16 @@ body{
 }
 .labelcd{
     margin-bottom: 20px;
+    font-size: 25px;
 }
 .inputcd{
     text-align: center;
     width: 300px;
     height: 35px;
+    font-size: 15px;
 }
 .cl2cd{
     height: 100px;
-    font-size: 30px;
     font-weight: bold;
     display: flex;
     flex-direction: column;
