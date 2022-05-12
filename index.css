@@ -73,6 +73,7 @@
     margin-top: 20px;
     height: 40px;
     position: relative;
+
 }
 .tbnovo{
     position: absolute;
@@ -111,12 +112,27 @@
 .tbnovo:hover{
     color:#0000FF;
 }
+@media (max-width: 767px){
+    .caixadepesquisa{
+        display: none;
+    }
+    .tbnovo{
+        display: none;
+    }
+    .caixaperfil{
+        display: none;
+    }
+}
 /*style for client*/
+.container{
+    padding-top: 20px;
+    
+}
 .caixacliente{
- 
     height: 90px;
     width: 300px;
     position: relative;
+    margin: 20px auto;
 }
 .perfilcliente{
     background-color: rgb(255, 255, 255);
