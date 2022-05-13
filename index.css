@@ -83,6 +83,17 @@
     font-weight: bolder;
     cursor: pointer;
 }
+.bi-list{
+    font-size: 30px;
+    color: white;
+    height: 50px;
+    width: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    text-align: center;
+    right: 1px;
+    display: none;
+}
 .inputpes{
     height: 35px;
     width: 250px;
@@ -112,16 +123,48 @@
 .tbnovo:hover{
     color:#0000FF;
 }
+.fundobarra{
+    position: absolute;
+    height: 92vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    display: none;
+}
+.ul li{
+    color: white;
+}
+.barraresponsiva{
+    position: absolute;
+    height: 85vh;
+    width:85%;
+    background-color: black;
+    z-index: 1;
+    right: 0;
+    
+}
+.bi-x-lg{
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    position: absolute;
+    right: 10px;
+}
 @media (max-width: 767px){
-    .caixadepesquisa{
+    .topmain{
         display: none;
     }
-    .tbnovo{
-        display: none;
-    }
+   
     .caixaperfil{
         display: none;
     }
+    .bi-list{
+        display: block;
+    }
+    .titulofund{
+        font-size: 30px;
+    }
+
 }
 /*style for client*/
 .container{

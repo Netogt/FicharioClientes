@@ -63,3 +63,11 @@ function mudarconta(){
 function tirarmudarconta(){
     btntracarconta.style.display= 'none'
 }
+
+
+
+var barrars = document.getElementDyId('fundbrr')
+
+function mostrarbrrespo(){
+    barrars.style.display= 'block'
+}

@@ -50,8 +50,28 @@
             </div>
 
             <p class="tbnovo" onclick="abrircadastrocs()">+ Novo</p>
+            
 
         </section>
+
+        <section class="fundobarra" id="fundbrr">
+
+            <div class="barraresponsiva">
+
+                <i class="bi bi-x-lg"></i>
+
+                <ul>
+
+                    <li>Pesquisa</li>
+                    <li>+ Novo</li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+        <i class="bi bi-list" onclick="mostrarbrrespo()" ></i>
 
         <div class="container" style="max-width: 1120px;">
             
