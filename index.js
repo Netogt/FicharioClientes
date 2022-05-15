@@ -64,10 +64,13 @@ function tirarmudarconta(){
     btntracarconta.style.display= 'none'
 }
 
-
-
-var barrars = document.getElementDyId('fundbrr')
-
-function mostrarbrrespo(){
-    barrars.style.display= 'block'
+var caixapesquisa = document.querySelector('.topmain')
+var divbtnresp1 = document.querySelector('.divbtnresp')
+function abrirpesquisa(){
+    caixapesquisa.style.display = 'block';
+    divbtnresp1.style.display = 'none';
+}
+function fecharpesquisa1(){
+    caixapesquisa.style.display = 'none';
+    divbtnresp1.style.display = 'flex';
 }

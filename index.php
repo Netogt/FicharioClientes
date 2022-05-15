@@ -1,3 +1,8 @@
+<?php
+include("lc/conectbd.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br";>
 <head>
@@ -15,9 +20,9 @@
     <title>Tabela de Clientes</title>
 
 </head>
-<body style="height: 100vh; max-width: 1320px; margin: auto; border: 1px solid black;">
+<body style="height: 100vh; max-width: 1580px; margin: auto; border: 0 1px solid black;">
 
-    <!--parte1-->
+    <!--HOME PAGE-->
 
     <section class="tlfundo">
 
@@ -27,21 +32,21 @@
 
         <div class="caixaperfil">
 
-            <p>Nome</p>
+            <p class="nomeperf">Nome</p>
 
             <img class="imgperfilus" src="imagens/smPerfil.png" alt="Perfil" onclick="mudarconta()">
 
         </div>
 
-        <a href="LoginCadastro/fundo.html" class="btnsairconta">Sair</a>
+        <a href="lc/fundo.php" class="btnsairconta">Sair</a>
 
     </section>
 
-    <main class="maiodosite" onclick="tirarmudarconta()" >
+    <main class="maiodosite" onclick="tirarmudarconta()">
 
         <section class="topmain">
         
-            <div class="caixadepesquisa">
+            <div class="caixadepesquisa" id="caixadepesquisa" >
                 
                 <input class="inputpes" type="search" placeholder="Pesquise" id="pesquisa">
 
@@ -50,30 +55,16 @@
             </div>
 
             <p class="tbnovo" onclick="abrircadastrocs()">+ Novo</p>
-            
 
         </section>
 
-        <section class="fundobarra" id="fundbrr">
+        <div class="divbtnresp">
+            <i class="bi bi-search respsearch" onclick="abrirpesquisa()"></i>
+            <i class="bi bi-plus-circle tbnovoresp" onclick="abrircadastrocs()"></i>
+        </div>
+    
 
-            <div class="barraresponsiva">
-
-                <i class="bi bi-x-lg"></i>
-
-                <ul>
-
-                    <li>Pesquisa</li>
-                    <li>+ Novo</li>
-
-                </ul>
-
-            </div>
-
-        </section>
-
-        <i class="bi bi-list" onclick="mostrarbrrespo()" ></i>
-
-        <div class="container" style="max-width: 1120px;">
+        <div class="container" style="max-width: 1290px;" onclick="fecharpesquisa1()">
             
             <div class=" row">
 
@@ -89,7 +80,7 @@
 
 
                         echo"          
-                            <div class='col-md-6 col-lg-4'>
+                            <div class='col-md-6 col-lg-4' style=' margin-bottom: 20px;'>
 
                                 <div class='caixacliente' id='cod_$i'>
 
@@ -126,7 +117,7 @@
         </div>
     </main>
 
-    <!--parte2-->
+    <!--CADASTRO DE CLIENTES-->
 
     <section class="fundocdcl" id="cadastrocl1">
 
@@ -214,7 +205,7 @@
 
     </section>
 
-    <!--parte3-->
+    <!--CADASTRO DE CLIENTES PARTE 2-->
 
     <section class="fundocdcl1" id="funcocdcl1">
 
@@ -226,7 +217,7 @@
 
                     <h2 class="titulocdcl1">Novo Cliente</h2>
 
-                    <i class="bi bi-backspace backspacecd" id="exitcd1" onclick="voltarin()"></i>
+                    <i class="bi bi-backspace" id="exitcd1" onclick="voltarin()"></i>
 
                 </div>
 
@@ -260,7 +251,7 @@
 
     </section>
 
-    <!--parte4-->
+    <!--INFORMACOS DOS CLIENTES-->
 
     <section>
 
@@ -356,7 +347,7 @@
 
                 </section>
 
-                <!--parte4.2-->
+                <!--INFORMACOS DOS CLIENTES PARTE 2-->
 
                 <form class="formularioed" id="formularioed">
 
@@ -402,7 +393,7 @@
                         </div>
 
                     </div>
-                    
+
                     <div class="caixasclientes">
 
                         <img class="perfildocliente" src="imagens/ace.png" alt="">
@@ -431,19 +422,26 @@
                         </div>
 
                     </div>
-                    
-                    <i class="bi bi-x opcoes2"></i>
 
-                    <i class="bi bi-check2 opcoes2"></i>
-                
-                   
+                    <div class="opsedcl">
+                        <i class="bi bi-x xx"></i>
+                        <i class="bi bi-check2"></i>
+                    </div>
+
+
                 </form>
 
+               
             </div>
 
         </div>
 
     </section>
+            
+   
+
+
+
 
     <script src="index.js"></script>
 
