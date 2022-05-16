@@ -1,3 +1,20 @@
+<?php
+include("lc/conectbd.php");
+
+
+
+session_start();
+$cod_id =   $_SESSION['id'];
+
+
+ if (empty($cod_id)){header("Location: lc/fundo.php?error_section");}
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br";>
 <head>
@@ -33,7 +50,7 @@
 
         </div>
 
-        <a href="LoginCadastro/fundo.php" class="btnsairconta">Sair</a>
+        <a href="lc/fundo.php" class="btnsairconta">Sair</a>
 
     </section>
 
@@ -432,6 +449,11 @@
         </div>
 
     </section>
+            
+   
+
+
+
 
     <script src="index.js"></script>
 
