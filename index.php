@@ -131,7 +131,9 @@ $cod_id =   $_SESSION['id'];
 
     <!--CADASTRO DE CLIENTES-->
 
-    <section class="fundocdcl" id="cadastrocl1">
+    <form action="lc/cadastrocl.php" method="Post" enctype='multipart/form-data'>
+
+        <section class="fundocdcl" id="cadastrocl1" style="height:100%, width: 100%;">
 
         <div class="cadastrocl">
 
@@ -147,7 +149,7 @@ $cod_id =   $_SESSION['id'];
 
             </section>
 
-            <form class="formcdcl">
+            <div class="formcdcl">
 
                 <div class="divcdcl">
 
@@ -157,7 +159,7 @@ $cod_id =   $_SESSION['id'];
 
                             <label class="labelcdcl" for="nomecl">Nome</label>
 
-                            <input class="inputcdcl" type="text" required="" placeholder="Digite o nome" id="nomecl">
+                            <input class="inputcdcl" type="text" required="" placeholder="Digite o nome" id="nomecl" name="nomecl">
 
                         </div>
 
@@ -165,7 +167,7 @@ $cod_id =   $_SESSION['id'];
 
                             <label class="labelcdcl" for="numerocl">Numero</label>
 
-                            <input class="inputcdcl" type="tel" required="" name="numero" placeholder="00 00000-0000" id="numerocl" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}">
+                            <input class="inputcdcl" type="tel" required="" placeholder="00 00000-0000" id="numerocl" name="numerocl">
 
                         </div>
 
@@ -173,7 +175,7 @@ $cod_id =   $_SESSION['id'];
 
                             <label class="labelcdcl" for="emailcl">E-mail</label>
 
-                            <input class="inputcdcl" type="text" required="" placeholder="Digite o E-mail" id="emailcl">
+                            <input class="inputcdcl" type="text" required="" placeholder="Digite o E-mail" id="emailcl" name="emailcl">
 
                         </div>
 
@@ -185,7 +187,7 @@ $cod_id =   $_SESSION['id'];
 
                             <label class="labelcdcl" for="pedidocl">Pedido</label>
 
-                            <input class="inputcdcl" type="text" required="" placeholder="Pedido" id="pedidocl">
+                            <input class="inputcdcl" type="text" required="" placeholder="Pedido" id="pedidocl" name="pedidocl">
 
                         </div>
 
@@ -193,7 +195,7 @@ $cod_id =   $_SESSION['id'];
 
                             <label class="labelcdcl" for="vltotalcl">Valor Total</label>
 
-                            <input class="inputcdcl" type="text" required="" placeholder="Valor do pedido" id="vltotalcl">
+                            <input class="inputcdcl" type="text" required="" placeholder="Valor do pedido" id="vltotalcl" name="valorpedidocl">
 
                         </div>
 
@@ -201,7 +203,7 @@ $cod_id =   $_SESSION['id'];
 
                             <label class="labelcdcl" for="entradacl">Entrada</label>
 
-                            <input class="inputcdcl" type="text" required="" placeholder="Valor da entrada" id="entradacl">
+                            <input class="inputcdcl" type="text" required="" placeholder="Valor da entrada" id="entradacl" name="entradapedidocl">
 
                         </div>
 
@@ -209,59 +211,62 @@ $cod_id =   $_SESSION['id'];
 
                 </div>
 
-                <button class="buttoncdcl" type="submit" onclick="cdclp2()">Avançar</button>
+                <button class="buttoncdcl" onclick="cdclp2()">Avançar</button>
 
-            </form>
+            </div>
             
         </div>
 
-    </section>
-
-    <!--CADASTRO DE CLIENTES PARTE 2-->
-
-    <section class="fundocdcl1" id="funcocdcl1">
-
-        <div class="cadastrocl1">
-
-            <section class="haddercdcl1">
-
-                <div>
-
-                    <h2 class="titulocdcl1">Novo Cliente</h2>
-
-                    <i class="bi bi-backspace" id="exitcd1" onclick="voltarin()"></i>
-
-                </div>
-
-            </section>
-
-            <form class="formcdcl1">
-
-                <div class="maincdcl">
-
-                    <img class="slimagencliente" src="imagens/ace.png" alt="">
+        </section>
                     
-                    <h2 class="h2clcd">Selecione uma imagem</h2>
 
-                    <label class="labelfile" for="imagemcl">File</label>
+        <!--CADASTRO DE CLIENTES PARTE 2-->
 
-                    <input class="imputfile" type="file" required="" id="imagemcl">
+        <section class="fundocdcl1" id="funcocdcl1">
+
+            <div class="cadastrocl1">
+
+                <section class="haddercdcl1">
+
+                    <div>
+
+                        <h2 class="titulocdcl1">Novo Cliente</h2>
+
+                        <i class="bi bi-backspace" id="exitcd1" onclick="voltarin()"></i>
+
+                    </div>
+
+                </section>
+
+                <div class="formcdcl1" >
+
+                    <div class="maincdcl">
+
+                        <img class="slimagencliente" src="imagens/ace.png" alt="">
+                        
+                        <h2 class="h2clcd">Selecione uma imagem</h2>
+
+                        <label class="labelfile" for="imagemcl">File</label>
+
+                        <input class="imputfile" type="file" required="" id="imagemcl" name="dropzone">
+
+                    </div>
+
+                    <div class="botoescdcl">
+
+                        <button class="buttoncdcl" onclick="cdclvtp1()">voltar</button>
+
+                        <button class="buttoncdcl" type="submit">Avançar</button>
+
+                    </div>
 
                 </div>
+                
+            </div>
 
-                <div class="botoescdcl">
+        </section>
 
-                    <button class="buttoncdcl" onclick="cdclvtp1()">voltar</button>
-
-                    <button class="buttoncdcl" type="submit" onclick="voltarin()">Avançar</button>
-
-                </div>
-
-            </form>
-            
-        </div>
-
-    </section>
+    </form> 
 
     <!--INFORMACOS DOS CLIENTES-->
 
@@ -449,7 +454,7 @@ $cod_id =   $_SESSION['id'];
         </div>
 
     </section>
-            
+          
    
 
 
