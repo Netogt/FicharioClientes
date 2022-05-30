@@ -40,10 +40,7 @@ function voltarin(){
     fundocdcl2.style.display= 'none';
     cecaoms.style.display= 'flex';
 }
-function cdclp2(){
-    fundocdcl.style.display= 'none';
-    fundocdcl1.style.display= 'block';
-}
+
 function cdclvtp1(){
     fundocdcl.style.display= 'block';
     fundocdcl1.style.display= 'none';
@@ -64,13 +61,23 @@ function tirarmudarconta(){
     btntracarconta.style.display= 'none'
 }
 
-var caixapesquisa = document.querySelector('.topmain')
-var divbtnresp1 = document.querySelector('.divbtnresp')
+var caixapesquisa = document.getElementById('topmain')
+var divbtnresp1 = document.getElementById('divbtnresp')
+
 function abrirpesquisa(){
     caixapesquisa.style.display = 'block';
     divbtnresp1.style.display = 'none';
 }
+
+
+
+
 function fecharpesquisa1(){
-    caixapesquisa.style.display = 'none';
-    divbtnresp1.style.display = 'flex';
+
+    let largura = window.screen.width;
+
+    if(largura < 767){
+        caixapesquisa.style.display = 'none';
+        divbtnresp1.style.display = 'flex';
+    } 
 }
