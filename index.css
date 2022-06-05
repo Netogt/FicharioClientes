@@ -277,6 +277,7 @@
     right: 20px;
     cursor: pointer;
     bottom: 1px;
+    
 }
 .formcdcl{
     width: 100%;
@@ -476,26 +477,13 @@
     
 }
 /*style clientes*/
-.fundocdcl2{
-    max-width: 1580px;
-    background-color: rgba(0, 0, 0, 0.1);
-    position: absolute;
-    height: 95%;
-    width: 100%;
-    top: 50px;
-    display: none;
-}
 .fundoclientes{
-    margin: auto;
-    margin-bottom: 0;
-    margin-top: 20px;
-    background-color: rgb(255, 255, 255);
-    height: 90vh;
-    width: 80%;
-    border-radius: 20px;
+   
+    height: 100vh;
+    width: 100%;
+    
 }
 .heddercliente{
-    border-radius: 20px 20px 0 0;
     background-color: #0000FF;
     width: 100%;
     height: 50px;
@@ -516,6 +504,7 @@
     align-items: center;
     justify-content: flex-start;
     position: relative;
+    
 }
 .perfildocliente{
     height: 220px;
@@ -561,14 +550,11 @@
 }
 @media (max-width: 767px){
     .fundoclientes{
-        height: 180%;
+        height: 180vh;
         
     }
     .heddercliente{
         border-radius: 0;
-    }
-    .fundocdcl2{
-        top:0;
     }
     .secao2cliente{
         height: 100%;
@@ -639,5 +625,8 @@
         position: initial;
         margin-left: 60%;
         margin-bottom: 10px;
+    }
+    .inputddsclinte1{
+        width: 250px;
     }
 }

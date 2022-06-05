@@ -107,8 +107,8 @@ session_destroy();
                 <div class="cl2cd">
 
                     <h3 style="font-size: 30px;">Selecione uma imagem</h3>
-                    <label class="labelfilecd" for="imagenrc" onclick="verifica()">imagem</label>
-                    <input class="inputselcd" type="file" name="dropzone" onchange="foi()" id="imagenrc">
+                    <label class="labelfilecd" for="imagemcl" onclick="verifica()">imagem</label>
+                    <input class="inputselcd" type="file" name="dropzone" onchange="foi()" id="imagemcl">
 
                 </div>
 
@@ -175,5 +175,25 @@ session_destroy();
      };
 
     ?>
+        <script>
+        var photo = document.getElementById('imagencliente')
+        var file = document.getElementById('imagemcl')
+        function foi(){
+
+
+            let reader = new FileReader();
+
+            reader.onload = () => {
+
+                photo.src = reader.result;
+
+            }
+
+            reader.readAsDataURL(file.files[0])
+        }
+        var nomedocl = document.getElementById('nomedocl');
+
+    
+    </script>
 </body>
 </html>

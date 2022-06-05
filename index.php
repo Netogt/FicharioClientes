@@ -62,10 +62,10 @@ while($uslog=mysqli_fetch_assoc($busus)){
     </section>
     <main class="maiodosite">
         <section class="topmain" id="topmain">
-            <div class="caixadepesquisa" id="caixadepesquisa" >               
-                <input class="inputpes" type="search" placeholder="Pesquise" id="pesquisa">
-                <label for="pesquisa"><i style="font-size: 20px;cursor:pointer;" class="bi bi-search"></i></label>
-            </div>
+            <form class="caixadepesquisa" id="caixadepesquisa" action="buscar.php" method="Get">               
+                <input class="inputpes" type="search" placeholder="Pesquise" id="pesquisa" name="pesquisa">
+                <label for="pesquisa"><button type="submit" style="font-size: 20px;cursor:pointer; border:none; background-color:#fff" class="bi bi-search"></button></label>
+            </form>
             <p class="tbnovo" onclick="abrircadastrocs()">+ Novo</p>
         </section>
         <div class="divbtnresp" id="divbtnresp">
@@ -74,18 +74,28 @@ while($uslog=mysqli_fetch_assoc($busus)){
         </div>    
         <div class="container" style="max-width: 1290px;" onclick="fecharpesquisa1()">           
             <div class=" row">
-                
-            <?php
             
-                $comando = "SELECT * FROM $tabelaclientes ORDER BY idcd DESC";
+            <?php
+                $buscarcl=$_GET['busca'];
+                if ($buscarcl != ''){ 
+        
+                    $comando = "SELECT * FROM $tabelaclientes where nomecl LIKE '%$buscarcl%' ORDER BY id DESC";
+                
+                
+                    } else{
+                         $comando = "SELECT * FROM $tabelaclientes ORDER BY id DESC";
+                        }
                 $enviar = mysqli_query($conecta, $comando);
                 $resultado = mysqli_fetch_all($enviar, MYSQLI_ASSOC);
+                
 
                 foreach ($resultado as $produtos){
                 $nomecli = $produtos['nomecl'];
                 $pagarcli = $produtos['valorcl'];
                 $perfilcli = $produtos['imagencl'];
-                ?>
+                $codid = $produtos['id'];
+                
+                ?>  
 
                     <!-- contagem de linhas           
                         $sql = "SELECT * from dadosclientes";
@@ -97,7 +107,8 @@ while($uslog=mysqli_fetch_assoc($busus)){
                     }-->    
                                      
                 <div class="col-md-6 col-lg-4" style=" margin-bottom: 20px; bac">
-                    <div class="caixacliente" id="cod_$cont">
+                    <div class="caixacliente" id="codid">
+                       
                         <img class="perfilcliente" src="upload/<?php echo"$perfilcli"; ?>" alt="perfilcliente">
                         <div class="maiscliente">
                             <h2 class="nomecl"><?=$nomecli?></h2>
@@ -105,18 +116,18 @@ while($uslog=mysqli_fetch_assoc($busus)){
                                 <div class="textcl">
                                     <h3 class="ifvalor"><span id="vl1"> R$ <?=$pagarcli?></span></h3>
                                 </div>
-                                <p class="mais" onclick="abrirms()">...</p>
+                                <a href="infclientes.php?toke=<?=$codid?>" class="mais"  style="text-decoration: none;">...</a>
                             </div>
                         </div>
                     </div>
                 </div>                                      
                 <?php
                     }
+                   
                 ?>                   
             </div>
         </div>
     </main>
-
     <!--CADASTRO DE CLIENTES-->
 
     <form action="lc/cadastrocl.php" method="Post" enctype='multipart/form-data'>
@@ -194,104 +205,7 @@ while($uslog=mysqli_fetch_assoc($busus)){
         </section>
     </form> 
 
-    <!--INFORMACOS DOS CLIENTES-->
-
-    <section>
-        <div class="fundocdcl2" id="fundoms">    
-        <div class="fundoclientes">
-                <section class="heddercliente">
-                    <h2 class="tldadosclientes">Cliente</h2>
-                    <i class="bi bi-backspace backspacecd" id="exitcd2" onclick="voltarin()"></i>
-                </section>
-                <section class="secao2cliente"  id="secaoms">
-                    <div class="caixasclientes caixa1s">
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Nome:</h2>
-                            <p class="paragrafoclientes">nome</p>
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Numero:</h2>
-                            <p class="paragrafoclientes">00000000000</p>
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">E-mail:</h2>
-                            <p class="paragrafoclientes">aaaaaaaaaaaaa@aaaa.aaaa</p>
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Data do Pedido:</h2>
-                            <p class="paragrafoclientes">00/00/0000</p>
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Pedido:</h2>
-                            <p class="paragrafoclientes">ssssssssssssssssssssssssssssss</p>
-                        </div>
-                    </div>
-                    <div class="caixasclientes">
-                        <img class="perfildocliente" src="imagens/ace.png" alt="">
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Valor Total:</h2>
-                            <p class="paragrafoclientes">R$ 000,00</p>
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Entrada:</h2>
-                            <p class="paragrafoclientes">R$ 00</p>
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Resta:</h2>
-                            <p class="paragrafoclientes">R$ 00</p>
-                        </div>
-                    </div>
-                    <i class="bi bi-pencil" onclick="abrirmsed()"></i>
-                </section>
-
-                <!--INFORMACOS DOS CLIENTES PARTE 2-->
-
-                <form class="formularioed" id="formularioed">
-                    <div class="caixasclientes caixa1s">
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Nome:</h2>
-                            <input class="inputddsclinte1" type="text" name="nome" id="nomecliente" required="" placeholder="Nome">
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Numero:</h2>
-                            <input class="inputddsclinte1" type="tel" name="numero" id="numerocliente1" required="" >
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">E-mail:</h2>
-                            <input class="inputddsclinte1" type="email" name="Email" id="emailcliente1" required="" placeholder="aaaaaaaa@aaaa.com">
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Data do Pedido:</h2>
-                            <input class="inputddsclinte1" type="date" name="datapd" id="datapedido1" required="" placeholder="">
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Pedido:</h2>
-                            <input class="inputddsclinte1" type="text" name="pedido" id="pedidocliente1" required="" placeholder="Pedido">
-                        </div>
-                    </div>
-                    <div class="caixasclientes">
-                        <img class="perfildocliente" src="imagens/ace.png" alt="">
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Valor Total:</h2>
-                            <input class="inputddsclinte1" type="number" name="valortotal" id="valortotalcliente1" required="" placeholder="R$: 0,00">
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Entrada:</h2>
-                            <input class="inputddsclinte1" type="number" name="entrada" id="entradacliente1" required="" placeholder="R$: 0,00">
-                        </div>
-                        <div class="divdadosclintes1">
-                            <h2 class="tituloclientes">Resta:</h2>
-                            <input class="inputddsclinte1" type="number" name="resta" id="restacliente1" required="" placeholder="R$: 0,00">
-                        </div>
-                    </div>
-                    <div class="opsedcl">
-                        <i class="bi bi-x xx"></i>
-                        <i class="bi bi-check2"></i>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+   
         
     <script src="index.js"></script>
     <script>
@@ -310,13 +224,15 @@ while($uslog=mysqli_fetch_assoc($busus)){
 
             reader.readAsDataURL(file.files[0])
         }
+        var nomedocl = document.getElementById('nomedocl');
 
-    </script>
     
+    </script>
+  
 
     <script>
-
-    
+   
+   
     
    
     function cdclp2(){
