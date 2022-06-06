@@ -29,7 +29,7 @@ session_destroy();
         <h1 class="titulofund">Tabela de Clientes</h1>
 
     </section>
-    <section class="fundolg " >
+    <section class="fundolg" id="fundolg" >
 
         <header class="cabecalho"> 
 
@@ -146,7 +146,7 @@ session_destroy();
     <script>
         var p = document.getElementById('senhanc')
         var esc = document.getElementById('fundocd1')
-
+        var esc1 = document.getElementById('fundolg')
 
     </script>
     <?php
@@ -162,17 +162,23 @@ session_destroy();
      if($cadastro == "erro"){
         echo "
             <script>
+                esc1.style.display = 'none';
                 esc.style.display = 'block';
                 p.style.display = 'block';
+                p.innerHTML = 'Usuário já cadastrado.';
             </script>
         ";
-     }else if($inscricao == "senhadf"){
+     }else if($cadastro == "senhadf"){
         echo "
             <script>
-                window.alert('Houve um erro desconhecido')
+                esc1.style.display = 'none';
+                esc.style.display = 'block';
+                p.style.display = 'block';
+                
             </script>
         ";
-     };
+
+     }
 
     ?>
         <script>
